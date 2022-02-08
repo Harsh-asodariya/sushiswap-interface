@@ -18,6 +18,7 @@ import Link from 'next/link'
 import React from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { RecoilRoot } from 'recoil'
+import { useKashiBorrowPositions } from 'app/features/portfolio/kashiHooks'
 
 export default function Borrow() {
   const { i18n } = useLingui()
@@ -25,11 +26,7 @@ export default function Borrow() {
   // @ts-ignore TYPE NEEDS FIXING
   const pairs = useKashiPairs(addresses)
 
-  const positions = useSearchAndSort(
-    pairs.filter((pair: any) => pair.userCollateralShare.gt(0) || pair.userBorrowPart.gt(0)),
-    { keys: ['search'], threshold: 0.1 },
-    { key: 'health.value', direction: 'descending' }
-  )
+  const positions = useKashiBorrowPositions(pairs)
 
   const data = useSearchAndSort(
     pairs,

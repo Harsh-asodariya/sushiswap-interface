@@ -318,7 +318,6 @@ export function useKashiPairs(addresses: string[] = []) {
           value: pair.utilization,
           string: Fraction.from(pair.utilization, BigNumber.from(10).pow(16)).toString(),
         }
-        console.log(pair.utilization.value.div(e10(15)).toBigInt())
         pair.supplyAPR = {
           value: pair.supplyAPR,
           valueWithStrategy: pair.supplyAPR.add(pair.strategyAPY.asset.value.mulDiv(pair.utilization.value, e10(18))),
