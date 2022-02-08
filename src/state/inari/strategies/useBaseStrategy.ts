@@ -100,8 +100,8 @@ const useBaseStrategy = ({ id, general, tokenDefinitions }: useBaseStrategyInter
     [sushiPerXSushi]
   )
 
-  // Convenience wrapper function that allows for setting balances
-  // Mostly used when balances are loaded async in child strategies
+  // Convenience wrapper function that allows for setting portfolio
+  // Mostly used when portfolio are loaded async in child strategies
   const setBalances = useCallback(
     ({
       inputTokenBalance,

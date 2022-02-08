@@ -48,7 +48,7 @@ describe('Balances:', () => {
     browser.close()
   })
 
-  test('Should get correct wallet balances', async () => {
+  test('Should get correct wallet portfolio', async () => {
     await myWalletPage.navigateTo()
     const appBalances = await myWalletPage.getWalletBalances()
 
@@ -61,7 +61,7 @@ describe('Balances:', () => {
     }
   })
 
-  test('Should get correct BentoBox balances', async () => {
+  test('Should get correct BentoBox portfolio', async () => {
     await myBentoBoxPage.navigateTo()
     const appBalances = await myBentoBoxPage.getBentoBalances()
 

@@ -1,6 +1,6 @@
 import { CurrencyLogo } from 'app/components/CurrencyLogo'
 import Typography from 'app/components/Typography'
-import { Assets } from 'app/features/trident/balances/AssetBalances/types'
+import { Assets } from 'app/features/portfolio/AssetBalances/types'
 import { currencyFormatter } from 'app/functions'
 import { useUSDCPriceWithLoadingIndicator, useUSDCValueWithLoadingIndicator } from 'app/hooks/useUSDCPrice'
 import React, { useMemo } from 'react'

@@ -57,7 +57,7 @@ describe('Remove Liquidity:', () => {
 
     const poolLink = page.url()
 
-    // Get position & balances before
+    // Get position & portfolio before
     const positionBeforeWithdraw = await poolPage.getPoolPosition()
     expect(positionBeforeWithdraw.assetA).toEqual('USDC')
     expect(positionBeforeWithdraw.assetB).toEqual('WETH')
@@ -84,7 +84,7 @@ describe('Remove Liquidity:', () => {
     await page.goto(poolLink)
     await page.waitForSelector(`#pool-title-${targetPoolName}`)
 
-    // Get position & balances after
+    // Get position & portfolio after
     const positionAfterDeposit = await poolPage.getPoolPosition()
     expect(positionAfterDeposit.assetA).toEqual('USDC')
     expect(positionAfterDeposit.assetB).toEqual('WETH')

@@ -124,7 +124,7 @@ const useLPTokensState = () => {
           const { data: dataV2 } = await responses[1].json()
 
           userLP = [
-            // ...dataV1?.['pancakeswap']?.balances
+            // ...dataV1?.['pancakeswap']?.portfolio
             //   ?.filter((balance: any) => balance.pool_token.balance !== '0')
             //   .map((balance: any) => ({
             //     ...balance,

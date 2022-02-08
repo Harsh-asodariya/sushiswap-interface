@@ -16,7 +16,7 @@ interface V2PairsWithLiquidity {
  */
 export const useV2PairsWithLiquidity = (): V2PairsWithLiquidity => {
   const { account } = useActiveWeb3React()
-  // fetch the user's balances of all tracked V2 LP tokens
+  // fetch the user's portfolio of all tracked V2 LP tokens
   const trackedTokenPairs = useTrackedTokenPairs()
   const tokenPairsWithLiquidityTokens = useMemo(
     () =>

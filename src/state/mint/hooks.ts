@@ -102,7 +102,7 @@ export function useDerivedMintInfo(
         JSBI.equal(pair.reserve1.quotient, ZERO)
     )
 
-  // balances
+  // portfolio
   const balances = useCurrencyBalances(account ?? undefined, [
     currencies[Field.CURRENCY_A],
     currencies[Field.CURRENCY_B],

@@ -21,7 +21,7 @@ export const useTokenComparator = (): TokenComparatorFn => {
     // -1 = a is first
     // 1 = b is first
 
-    // sort by balances
+    // sort by portfolio
     const balanceA = balances[tokenA.address]
     const balanceB = balances[tokenB.address]
 

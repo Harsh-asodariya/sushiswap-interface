@@ -11,7 +11,7 @@ import { useMemo } from 'react'
 import { TokenBalancesMap } from './types'
 
 /**
- * Returns a map of the given addresses to their eventually consistent ETH balances.
+ * Returns a map of the given addresses to their eventually consistent ETH portfolio.
  */
 export function useETHBalances(uncheckedAddresses?: (string | undefined)[]): {
   [address: string]: CurrencyAmount<Currency> | undefined
@@ -50,7 +50,7 @@ export function useETHBalances(uncheckedAddresses?: (string | undefined)[]): {
 }
 
 /**
- * Returns a map of token addresses to their eventually consistent token balances for a single account.
+ * Returns a map of token addresses to their eventually consistent token portfolio for a single account.
  */
 export function useTokenBalancesWithLoadingIndicator(
   address?: string,

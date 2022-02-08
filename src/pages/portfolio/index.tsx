@@ -1,10 +1,10 @@
-import ActionsModal from 'app/features/trident/balances/ActionsModal'
-import { BentoBalances, WalletBalances } from 'app/features/trident/balances/AssetBalances'
-import HeaderDropdown from 'app/features/trident/balances/HeaderDropdown'
+import ActionsModal from 'app/features/portfolio/ActionsModal'
+import { BentoBalances, WalletBalances } from 'app/features/portfolio/AssetBalances'
+import HeaderDropdown from 'app/features/portfolio/HeaderDropdown'
 import TridentLayout, { TridentBody, TridentHeader } from 'app/layouts/Trident'
 import React from 'react'
 
-const Balances = () => {
+const Portfolio = () => {
   return (
     <>
       <TridentHeader pattern="bg-chevron">
@@ -19,6 +19,6 @@ const Balances = () => {
   )
 }
 
-Balances.Layout = TridentLayout
+Portfolio.Layout = TridentLayout
 
-export default Balances
+export default Portfolio

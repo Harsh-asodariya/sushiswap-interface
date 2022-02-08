@@ -4,9 +4,9 @@ import { useLingui } from '@lingui/react'
 import { NATIVE } from '@sushiswap/core-sdk'
 import { BentoboxIcon, WalletIcon } from 'app/components/Icon'
 import { Feature } from 'app/enums/Feature'
-import ActionItem from 'app/features/trident/balances/ActionsModal/ActionItem'
-import { setBalancesActiveModal } from 'app/features/trident/balances/balancesSlice'
-import { useBalancesSelectedCurrency } from 'app/features/trident/balances/useBalancesDerivedState'
+import ActionItem from 'app/features/portfolio/ActionsModal/ActionItem'
+import { setBalancesActiveModal } from 'app/features/portfolio/portfolioSlice'
+import { useBalancesSelectedCurrency } from 'app/features/portfolio/useBalancesDerivedState'
 import { ActiveModal } from 'app/features/trident/types'
 import { featureEnabled } from 'app/functions'
 import { useActiveWeb3React } from 'app/services/web3'
@@ -14,7 +14,7 @@ import { useAppDispatch } from 'app/state/hooks'
 import { useRouter } from 'next/router'
 import React, { FC, useCallback } from 'react'
 
-import HeadlessUiModal from '../../../../components/Modal/HeadlessUIModal'
+import HeadlessUiModal from 'app/components/Modal/HeadlessUIModal'
 
 interface ActionViewProps {
   onClose(): void
