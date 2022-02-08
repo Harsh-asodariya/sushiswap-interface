@@ -3,8 +3,10 @@ import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import { Currency, CurrencyAmount, NATIVE, ZERO } from '@sushiswap/core-sdk'
 import Typography, { TypographyVariant } from 'app/components/Typography'
+import { useKashiPairAddresses, useKashiPairs } from 'app/features/kashi/hooks'
 import SumUSDCValues from 'app/features/trident/SumUSDCValues'
 import { currencyFormatter } from 'app/functions'
+import useSearchAndSort from 'app/hooks/useSearchAndSort'
 import { useTridentLiquidityPositions } from 'app/services/graph'
 import { useActiveWeb3React } from 'app/services/web3'
 import { useBentoBalancesV2 } from 'app/state/bentobox/hooks'
@@ -64,6 +66,35 @@ export const BalancesSum = () => {
   const { i18n } = useLingui()
   const { data: walletBalances, loading: wLoading } = useWalletBalances()
   const { data: bentoBalances, loading: bLoading } = useBentoBalancesV2()
+
+  // Abstract out and resuse in lend/borrow pages
+  const addresses = useKashiPairAddresses()
+  const pairs = useKashiPairs(addresses)
+
+  // console.log(pairs)
+
+  // borrow
+  const positions = useSearchAndSort(
+    pairs.filter((pair: any) => pair.userCollateralShare.gt(0) || pair.userBorrowPart.gt(0)),
+    { keys: ['search'], threshold: 0.1 },
+    { key: 'health.value', direction: 'descending' }
+  )
+
+  console.log(
+    'borrow positions',
+    positions.items.map((i) => i.currentUserBorrowAmount)
+  )
+
+  const ca = new CurrencyAmount()
+
+  // lend
+  // const positions = useSearchAndSort(
+  //   // @ts-ignore TYPE NEEDS FIXING
+  //   pairs.filter((pair) => pair.userAssetFraction.gt(0)),
+  //   { keys: ['search'], threshold: 0.1 },
+  //   { key: 'currentUserAssetAmount.usdValue', direction: 'descending' }
+  // )
+
   const balances = useMemo(() => {
     return Object.values(
       [...walletBalances, ...bentoBalances].reduce<Record<string, CurrencyAmount<Currency>>>((acc, cur) => {

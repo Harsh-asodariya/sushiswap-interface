@@ -1,12 +1,25 @@
+import { t } from '@lingui/macro'
+import { useLingui } from '@lingui/react'
 import ActionsModal from 'app/features/portfolio/ActionsModal'
 import { BentoBalances, WalletBalances } from 'app/features/portfolio/AssetBalances'
 import HeaderDropdown from 'app/features/portfolio/HeaderDropdown'
 import TridentLayout, { TridentBody, TridentHeader } from 'app/layouts/Trident'
+import Head from 'next/head'
 import React from 'react'
 
 const Portfolio = () => {
+  const { i18n } = useLingui()
+
   return (
     <>
+      <Head>
+        <title>{i18n._(t`Portfolio`)} | Sushi</title>
+        <meta
+          key="description"
+          name="description"
+          content="Get a summary of all of the balances in your portfolio on Sushi."
+        />
+      </Head>
       <TridentHeader pattern="bg-chevron">
         <HeaderDropdown />
       </TridentHeader>
